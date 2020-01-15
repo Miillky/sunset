@@ -1,4 +1,4 @@
-<h1>Sunset Theme Options</h1>
+<h1>Sunset Sidebar Options</h1>
 <?php settings_errors(); ?>
 <?php
 	$picture = esc_attr(get_option('profile_picture'));
@@ -15,7 +15,6 @@
 		<h1 class="sunset-username"><?php echo $fullName; ?></h1>
 		<h2 class="sunset-description"><?php echo $description; ?></h2>
 		<div class="icons-wrapper">
-
 		</div>
 	</div>
 </div>
