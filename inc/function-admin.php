@@ -1,9 +1,11 @@
 <?php
 
-/*
-	@package sunset
-	ADMIN PAGE
-*/
+/**
+ *
+ * ADMIN PAGE
+ * @package sunsettheme
+ *
+ */
 
 function sunset_add_admin_page(){
 

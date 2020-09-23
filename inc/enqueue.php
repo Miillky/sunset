@@ -27,3 +27,22 @@ function sunset_load_admin_scripts($hook){
 	} else { return; }
 }
 add_action('admin_enqueue_scripts', 'sunset_load_admin_scripts');
+
+
+/**
+ * FRONT-END ENQUEUE FUNCTIONS
+ */
+
+function sunset_load_scripts(){
+
+	wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', [], '3.4.1', 'all');
+	wp_enqueue_style('sunset', get_template_directory_uri() . '/css/sunset.css', ['bootstrap'], '1.0.0', 'all');
+
+	wp_deregister_script('jquery');
+	wp_register_script('jquery', get_template_directory_uri() . '/js/jquery.min.js', [], '3.5.1', true);
+	wp_enqueue_script('jquery');
+
+	wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', ['jquery'], '3.4.1', true);
+
+}
+add_action('wp_enqueue_scripts', 'sunset_load_scripts');
