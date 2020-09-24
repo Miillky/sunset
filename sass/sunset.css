@@ -132,4 +132,15 @@ body {
   margin-top: 1em;
 }
 
+.nav-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.nav-container .navbar-sunset {
+  background-color: transparent;
+  border: none;
+}
+
 /*# sourceMappingURL=sunset.css.map */
