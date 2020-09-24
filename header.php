@@ -37,7 +37,8 @@
                                     wp_nav_menu([
                                         'theme_location'    => 'primary',
                                         'container'         => false,
-                                        'menu_class'        => 'nav navbar-nav'
+                                        'menu_class'        => 'nav navbar-nav',
+                                        'walker'            => new Sunset_Walker_Nav_Primary()
                                     ]);
                                 ?>
                             </nav>

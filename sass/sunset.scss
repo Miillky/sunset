@@ -3,14 +3,35 @@
  */
 
 /**
-	Variables
+  Variables
 */
 
+$white: #ffffff;
 $icon-font : 'sunset-icon';
 $body-font : Raleway, 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
 
 /**
-    Font Icon
+  Mixins
+ */
+
+@mixin animate($attr, $time){
+  -webkit-transform: $attr $time ease;
+  -moz-transition: $attr $time ease;
+  -ms-transition: $attr $time ease;
+  -o-transition: $attr $time ease;
+  transition: $attr $time ease;
+}
+
+@mixin transform($val){
+  -webkit-transform: $val;
+  -moz-transform: $val;
+  -ms-transform: $val;
+  -o-transform: $val;
+  transform: $val;
+}
+
+/**
+  Font Icon
 */
 
 @font-face {
@@ -97,7 +118,7 @@ $body-font : Raleway, 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
 }
 
 /**
-    Generic
+  Generic
  */
 
 body {
@@ -124,7 +145,7 @@ body {
 }
 
 /**
-    Header
+  Header
  */
 .header-container {
   position: relative;
@@ -134,13 +155,13 @@ body {
 
   .site-title {
     font-size: 80px;
-    color: #fff;
+    color: $white;
     margin: 0;
   }
 
   .site-description {
     font-size: 14px;
-    color: #fff;
+    color: $white;
     margin-top: 1em;
   }
 }
@@ -151,8 +172,100 @@ body {
   left: 0;
   right: 0;
 
+  /**
+    Nav Bar
+   */
   .navbar-sunset {
-    background-color: transparent;
+    text-align: center;
+    background-color: rgba(255,255,255,0.1);
     border: none;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-radius: 0;
+    height: auto;
+    margin-bottom: 0;
+
+    ul {
+      float: none;
+
+      li {
+        float: none;
+        display: inline-block;
+
+        &.active {
+
+          a {
+            background-color: transparent;
+            opacity: 1;
+
+            &:after {
+              opacity: 1;
+              @include transform(translate(0));
+            }
+
+          }
+        }
+        &.open {
+          background-color: rgba(0,0,0,0.1)!important;
+          opacity: 1;
+
+          &:after {
+            opacity: 0 !important;
+            @include transform(translate(10px));
+          }
+          &:hover,
+          &:focus,
+          &:visited {
+            background-color: rgba(0, 0, 0, 0.1) !important;
+
+            &:after {
+              @include transform(translateY(10px));
+              opacity: 0 !important;
+            }
+          }
+
+          .dropdown-toggle {
+            background-color: rgba(0,0,0,0.1) !important;
+          }
+          .dropdown-menu {
+            background-color: rgba(0,0,0,0.8) !important;
+          }
+        }
+
+        a {
+          text-transform: uppercase;
+          color: $white;
+          font-size: 12px;
+          opacity: 0.7;
+          letter-spacing: 0.05em;
+          background: none;
+          @include animate(opacity, 320ms);
+          &:hover,
+          &:focus,
+          &:visited {
+            color: $white;
+            background: none;
+            opacity: 1;
+
+            &:after {
+              @include transform(translate(0));
+              opacity: 1;
+            }
+          }
+          &:after {
+            content: '';
+            position: absolute;
+            display: block;
+            left: 15px;
+            right: 15px;
+            bottom: 10px;
+            height: 2px;
+            background-color: $white;
+            opacity: 0;
+            @include animate(all, 320ms);
+            @include transform(translateY(10px))
+          }
+        }
+      }
+    }
   }
 }

@@ -3,10 +3,13 @@
     @package sunsettheme
  */
 /**
-	Variables
+  Variables
 */
 /**
-    Font Icon
+  Mixins
+ */
+/**
+  Font Icon
 */
 @font-face {
   font-family: "sunset-icon";
@@ -88,7 +91,7 @@
 }
 
 /**
-    Generic
+  Generic
  */
 body {
   font-family: Raleway, "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
@@ -113,7 +116,7 @@ body {
 }
 
 /**
-    Header
+  Header
  */
 .header-container {
   position: relative;
@@ -123,12 +126,12 @@ body {
 }
 .header-container .site-title {
   font-size: 80px;
-  color: #fff;
+  color: #ffffff;
   margin: 0;
 }
 .header-container .site-description {
   font-size: 14px;
-  color: #fff;
+  color: #ffffff;
   margin-top: 1em;
 }
 
@@ -137,10 +140,113 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
+  /**
+    Nav Bar
+   */
 }
 .nav-container .navbar-sunset {
-  background-color: transparent;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
   border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  height: auto;
+  margin-bottom: 0;
+}
+.nav-container .navbar-sunset ul {
+  float: none;
+}
+.nav-container .navbar-sunset ul li {
+  float: none;
+  display: inline-block;
+}
+.nav-container .navbar-sunset ul li.active a {
+  background-color: transparent;
+  opacity: 1;
+}
+.nav-container .navbar-sunset ul li.active a:after {
+  opacity: 1;
+  -webkit-transform: translate(0);
+  -moz-transform: translate(0);
+  -ms-transform: translate(0);
+  -o-transform: translate(0);
+  transform: translate(0);
+}
+.nav-container .navbar-sunset ul li.open {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  opacity: 1;
+}
+.nav-container .navbar-sunset ul li.open:after {
+  opacity: 0 !important;
+  -webkit-transform: translate(10px);
+  -moz-transform: translate(10px);
+  -ms-transform: translate(10px);
+  -o-transform: translate(10px);
+  transform: translate(10px);
+}
+.nav-container .navbar-sunset ul li.open:hover, .nav-container .navbar-sunset ul li.open:focus, .nav-container .navbar-sunset ul li.open:visited {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+.nav-container .navbar-sunset ul li.open:hover:after, .nav-container .navbar-sunset ul li.open:focus:after, .nav-container .navbar-sunset ul li.open:visited:after {
+  -webkit-transform: translateY(10px);
+  -moz-transform: translateY(10px);
+  -ms-transform: translateY(10px);
+  -o-transform: translateY(10px);
+  transform: translateY(10px);
+  opacity: 0 !important;
+}
+.nav-container .navbar-sunset ul li.open .dropdown-toggle {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+.nav-container .navbar-sunset ul li.open .dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+.nav-container .navbar-sunset ul li a {
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 12px;
+  opacity: 0.7;
+  letter-spacing: 0.05em;
+  background: none;
+  -webkit-transform: opacity 320ms ease;
+  -moz-transition: opacity 320ms ease;
+  -ms-transition: opacity 320ms ease;
+  -o-transition: opacity 320ms ease;
+  transition: opacity 320ms ease;
+}
+.nav-container .navbar-sunset ul li a:hover, .nav-container .navbar-sunset ul li a:focus, .nav-container .navbar-sunset ul li a:visited {
+  color: #ffffff;
+  background: none;
+  opacity: 1;
+}
+.nav-container .navbar-sunset ul li a:hover:after, .nav-container .navbar-sunset ul li a:focus:after, .nav-container .navbar-sunset ul li a:visited:after {
+  -webkit-transform: translate(0);
+  -moz-transform: translate(0);
+  -ms-transform: translate(0);
+  -o-transform: translate(0);
+  transform: translate(0);
+  opacity: 1;
+}
+.nav-container .navbar-sunset ul li a:after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 15px;
+  right: 15px;
+  bottom: 10px;
+  height: 2px;
+  background-color: #ffffff;
+  opacity: 0;
+  -webkit-transform: all 320ms ease;
+  -moz-transition: all 320ms ease;
+  -ms-transition: all 320ms ease;
+  -o-transition: all 320ms ease;
+  transition: all 320ms ease;
+  -webkit-transform: translateY(10px);
+  -moz-transform: translateY(10px);
+  -ms-transform: translateY(10px);
+  -o-transform: translateY(10px);
+  transform: translateY(10px);
 }
 
 /*# sourceMappingURL=sunset.css.map */
