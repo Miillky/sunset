@@ -105,7 +105,6 @@ body {
   width: 100%;
   height: 100%;
 }
-
 .table .table-cell {
   display: table-cell;
   width: 100%;
@@ -122,19 +121,15 @@ body {
   height: 326px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
-
 .header-container .site-title {
   font-size: 80px;
   color: #fff;
   margin: 0;
 }
-
 .header-container .site-description {
   font-size: 14px;
   color: #fff;
   margin-top: 1em;
 }
-
-/*# sourceMappingURL=sunset.css.map */
 
 /*# sourceMappingURL=sunset.css.map */
