@@ -161,7 +161,7 @@ body {
   display: inline-block;
 }
 .nav-container .navbar-sunset ul li.active a {
-  background-color: transparent;
+  background: none;
   opacity: 1;
 }
 .nav-container .navbar-sunset ul li.active a:after {
@@ -172,12 +172,23 @@ body {
   -o-transform: translate(0);
   transform: translate(0);
 }
+.nav-container .navbar-sunset ul li.active a:hover {
+  color: #ffffff;
+  background: none;
+}
+.nav-container .navbar-sunset ul li.active a:hover:after {
+  -webkit-transform: translateY(-2px);
+  -moz-transform: translateY(-2px);
+  -ms-transform: translateY(-2px);
+  -o-transform: translateY(-2px);
+  transform: translateY(-2px);
+}
 .nav-container .navbar-sunset ul li.open {
-  background-color: rgba(0, 0, 0, 0.1) !important;
+  background-color: rgba(0, 0, 0, 0.1);
   opacity: 1;
 }
 .nav-container .navbar-sunset ul li.open:after {
-  opacity: 0 !important;
+  opacity: 0;
   -webkit-transform: translate(10px);
   -moz-transform: translate(10px);
   -ms-transform: translate(10px);
@@ -185,7 +196,7 @@ body {
   transform: translate(10px);
 }
 .nav-container .navbar-sunset ul li.open:hover, .nav-container .navbar-sunset ul li.open:focus, .nav-container .navbar-sunset ul li.open:visited {
-  background-color: rgba(0, 0, 0, 0.1) !important;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .nav-container .navbar-sunset ul li.open:hover:after, .nav-container .navbar-sunset ul li.open:focus:after, .nav-container .navbar-sunset ul li.open:visited:after {
   -webkit-transform: translateY(10px);
@@ -193,13 +204,23 @@ body {
   -ms-transform: translateY(10px);
   -o-transform: translateY(10px);
   transform: translateY(10px);
-  opacity: 0 !important;
+  opacity: 0;
 }
 .nav-container .navbar-sunset ul li.open .dropdown-toggle {
-  background-color: rgba(0, 0, 0, 0.1) !important;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .nav-container .navbar-sunset ul li.open .dropdown-menu {
-  background-color: rgba(0, 0, 0, 0.8) !important;
+  border: none;
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.nav-container .navbar-sunset ul li.open .dropdown-menu a:hover:after {
+  -webkit-transform: translateY(5px);
+  -moz-transform: translateY(5px);
+  -ms-transform: translateY(5px);
+  -o-transform: translateY(5px);
+  transform: translateY(5px);
 }
 .nav-container .navbar-sunset ul li a {
   text-transform: uppercase;

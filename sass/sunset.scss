@@ -194,40 +194,61 @@ body {
         &.active {
 
           a {
-            background-color: transparent;
+            background: none;
             opacity: 1;
 
             &:after {
               opacity: 1;
               @include transform(translate(0));
             }
+            &:hover {
+              color: $white;
+              background: none;
 
+              &:after {
+                @include transform(translateY(-2px));
+              }
+            }
           }
         }
         &.open {
-          background-color: rgba(0,0,0,0.1)!important;
+          background-color: rgba(0,0,0,0.1);
           opacity: 1;
 
           &:after {
-            opacity: 0 !important;
+            opacity: 0;
             @include transform(translate(10px));
           }
           &:hover,
           &:focus,
           &:visited {
-            background-color: rgba(0, 0, 0, 0.1) !important;
+            background-color: rgba(0, 0, 0, 0.1);
 
             &:after {
               @include transform(translateY(10px));
-              opacity: 0 !important;
+              opacity: 0;
             }
           }
 
           .dropdown-toggle {
-            background-color: rgba(0,0,0,0.1) !important;
+            color: $white;
+            background-color: rgba(0,0,0,0.1);
           }
+
           .dropdown-menu {
-            background-color: rgba(0,0,0,0.8) !important;
+            border: none;
+            border-radius: 0;
+            background-color: rgba(0,0,0,0.8);
+
+            a {
+
+              &:hover {
+
+                &:after {
+                  @include transform(translateY(5px));
+                }
+              }
+            }
           }
         }
 

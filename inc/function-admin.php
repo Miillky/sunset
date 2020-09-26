@@ -157,7 +157,7 @@ function sunset_post_formats(){
 	$output = '';
 	foreach($formats as $format){
 		$checked = (@$options[$format] == 1 ? 'checked' : '');
-		$output .= '<label><input type="checkbox" id="'.$format.'" name="post_formats['.$format.']" value="1"'.$checked.'/>'.$format.'</label><br>';
+		$output .= '<label><input type="checkbox" id="'.$format.'" name="post_formats['.$format.']" value="1" '.$checked .'/>'.$format.'</label><br>';
 	}
 	echo $output;
 }
@@ -166,13 +166,13 @@ function sunset_post_formats(){
 function sunset_custom_header(){
 	$options = get_option('custom_header');
 	$checked = (@$options == 1 ? 'checked' : '');
-	echo '<label><input type="checkbox" id="custom_header" name="custom_header" value="1"'.$checked.'/>Activate the Custom Header</label><br>';
+	echo '<label><input type="checkbox" id="custom_header" name="custom_header" value="1" '.$checked.'/>Activate the Custom Header</label><br>';
 }
 
 function sunset_custom_background(){
 	$options = get_option('custom_background');
 	$checked = (@$options == 1 ? 'checked' : '');
-	echo '<label><input type="checkbox" id="custom_background" name="custom_background" value="1"'.$checked.'/>Activate the Custom Background</label><br>';
+	echo '<label><input type="checkbox" id="custom_background" name="custom_background" value="1" '.$checked.'/>Activate the Custom Background</label><br>';
 }
 
 //Contact Form Callback Function
@@ -183,7 +183,7 @@ function sunset_contact_section(){
 function sunset_activate_contact(){
 	$options = get_option('activate_contact');
 	$checked = (@$options == 1 ? 'checked' : '');
-	echo '<input type="checkbox" id="activate_contact" name="activate_contact" value="1"'.$checked.'/><br>';
+	echo '<input type="checkbox" id="activate_contact" name="activate_contact" value="1" '.$checked.'/><br>';
 }
 
 //Custom CSS Callback Function
