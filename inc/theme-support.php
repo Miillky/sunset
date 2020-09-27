@@ -11,7 +11,7 @@ if(!empty($options)){
 	$output = [];
 	foreach($formats as $format){
 		$output[] = (@$options[$format] == 1 ? $format : '');
-	};
+	}
 	add_theme_support('post-formats', $output);
 }
 
@@ -60,5 +60,34 @@ function sunset_posted_meta(){
  * @return string
  */
 function sunset_posted_footer(){
-	return 'tag list and comment link';
+
+    $comments_num = get_comments_number();
+    if(comments_open()){
+        if($comments_num == 0){
+            $comments = __('No Comments');
+        } elseif($comments_num > 1) {
+            $comments = $comments_num . __(' Comments');
+        } else {
+            $comments = __('1 Comment');
+        }
+        $comments = '<a href="' . get_comments_link() . '">' . $comments . ' <span class="sunset-icon sunset-comment"></span></a>';
+    } else {
+        $comments = __('Comments are closed');
+    }
+
+	ob_start(); ?>
+
+		<div class="post-footer-container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<?php the_tags('<div class="tags-list"><span class="sunset-icon sunset-tag"></span>', ' ', '</span></div>'); ?>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<?php echo $comments; ?>
+				</div>
+			</div>
+		</div>
+
+	<?php
+	return ob_get_clean();
 }
