@@ -91,3 +91,40 @@ function sunset_posted_footer(){
 	<?php
 	return ob_get_clean();
 }
+
+/**
+ * @return false|mixed|string
+ * Return Image URL from post content
+ */
+function sunset_get_attachment(){
+
+    $output = '';
+
+	if( has_post_thumbnail() ):
+		$output = wp_get_attachment_url(get_post_thumbnail_id( get_the_ID() ) );
+	else:
+
+		/*
+		    global $post;
+		    preg_match_all('/img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+		    $output = $matches[1][0];
+		*/
+
+		$attachments = get_posts([
+			'post_type'         => 'attachment',
+			'posts_per_page'    => 1,
+			'post_parent'       => get_the_ID()
+		]);
+
+		if($attachments):
+			foreach($attachments as $attachment):
+				$output = wp_get_attachment_url($attachment->ID);
+			endforeach;
+		endif;
+
+		wp_reset_postdata();
+
+	endif;
+
+	return $output;
+}

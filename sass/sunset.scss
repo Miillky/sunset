@@ -13,6 +13,11 @@
 @import "base/mixins";
 
 /**
+  Placeholders
+*/
+@import "base/placeholders";
+
+/**
   Font Icon
 */
 @import "base/fonticon";
@@ -56,10 +61,10 @@ a {
   Header
  */
 .header-container {
+  @extend %text-shadow;
   position: relative;
   display: block;
   height: 326px;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
 
   .site-title {
     font-size: 80px;
@@ -239,6 +244,7 @@ h1 {
   font-size: 13px;
   font-weight: 300;
   color: $light-grey;
+  margin-bottom: 20px;
 
   a {
     font-weight: 500;
@@ -290,9 +296,10 @@ h1 {
 
   p {
     font-size: 17px;
-    line-height: 1.5rem;
+    line-height: 1.8rem;
     font-weight: 300;
     letter-spacing: 0.02rem;
+    text-align: justify;
   }
 }
 
@@ -353,4 +360,53 @@ h1 {
       margin-left: 10px;
     }
   }
+}
+
+/**
+  Image Post Format
+ */
+.sunset-format-image {
+  margin-top: 50px;
+
+  .entry-header {
+    @extend %text-shadow;
+    position: relative;
+    color: $white;
+    height: 600px;
+  }
+
+  h1 {
+    color: $white;
+    padding-top: 10px;
+
+    a {
+      color: $white;
+    }
+  }
+
+  .entry-meta {
+    color: $white;
+
+    a {
+      color: $white;
+    }
+  }
+
+  .entry-excerpt {
+
+    &.image-caption {
+      @extend %background-gradient;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: 0;
+
+      p {
+        text-align: center;
+        margin: 40px 0;
+      }
+    }
+  }
+
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * @package sunsttheme
+ * @package sunsettheme
  * Standard Post Format
  */
 ?>
@@ -14,9 +14,8 @@
 	</header>
 	<div class="entry-content">
 		<?php if(has_post_thumbnail()): ?>
-            <?php $featured_image = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ) ); ?>
             <a href="<?php the_permalink(); ?>" class="standard-featured-link">
-			    <div class="standard-featured background-image" style="background-image: url('<?php echo $featured_image; ?>')"></div>
+			    <div class="standard-featured background-image" style="background-image: url('<?php echo sunset_get_attachment(); ?>')"></div>
             </a>
 		<?php endif; ?>
 		<div class="entry-excerpt">

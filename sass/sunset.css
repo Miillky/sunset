@@ -21,6 +21,30 @@
   Mixins
  */
 /**
+  Placeholders
+*/
+/**
+  @package sunsetheme
+ */
+/**
+  Placeholders
+ */
+.sunset-format-image .entry-header, .header-container {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.sunset-format-image .entry-excerpt.image-caption {
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#00000000", endColorstr="#80000000",GradientType=0 );
+  /* IE6-9 */
+}
+
+/**
   Font Icon
 */
 /**
@@ -152,7 +176,6 @@ a:hover, a:focus {
   position: relative;
   display: block;
   height: 326px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 .header-container .site-title {
   font-size: 80px;
@@ -336,6 +359,7 @@ h1 a {
   font-size: 13px;
   font-weight: 300;
   color: #898989;
+  margin-bottom: 20px;
 }
 .entry-meta a {
   font-weight: 500;
@@ -380,9 +404,10 @@ h1 a {
 }
 .entry-excerpt p {
   font-size: 17px;
-  line-height: 1.5rem;
+  line-height: 1.8rem;
   font-weight: 300;
   letter-spacing: 0.02rem;
+  text-align: justify;
 }
 
 .button-container {
@@ -432,6 +457,42 @@ h1 a {
 }
 .entry-footer .comments-link .sunset-icon {
   margin-left: 10px;
+}
+
+/**
+  Image Post Format
+ */
+.sunset-format-image {
+  margin-top: 50px;
+}
+.sunset-format-image .entry-header {
+  position: relative;
+  color: #ffffff;
+  height: 600px;
+}
+.sunset-format-image h1 {
+  color: #ffffff;
+  padding-top: 10px;
+}
+.sunset-format-image h1 a {
+  color: #ffffff;
+}
+.sunset-format-image .entry-meta {
+  color: #ffffff;
+}
+.sunset-format-image .entry-meta a {
+  color: #ffffff;
+}
+.sunset-format-image .entry-excerpt.image-caption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+}
+.sunset-format-image .entry-excerpt.image-caption p {
+  text-align: center;
+  margin: 40px 0;
 }
 
 /*# sourceMappingURL=sunset.css.map */
