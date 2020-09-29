@@ -13,7 +13,7 @@
 		</div>
 	</header>
 	<div class="entry-content">
-		<?php if(has_post_thumbnail()): ?>
+		<?php if(sunset_get_attachment()): ?>
             <a href="<?php the_permalink(); ?>" class="standard-featured-link">
 			    <div class="standard-featured background-image" style="background-image: url('<?php echo sunset_get_attachment(); ?>')"></div>
             </a>
