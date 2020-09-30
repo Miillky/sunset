@@ -208,7 +208,12 @@ a {
   Standard Post Format
 */
 article {
-  margin-bottom: 80px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  &:first-child {
+    padding-top: 80px;
+  }
 }
 
 h1 {
@@ -218,7 +223,7 @@ h1 {
 
   &.entry-title {
     line-height: 1.5em;
-    margin: 40px 0 0;
+    margin: 0;
     padding: 0;
 
     &:before,
@@ -366,7 +371,6 @@ h1 {
   Image Post Format
  */
 .sunset-format-image {
-  margin-top: 50px;
 
   .entry-header {
     @extend %text-shadow;
@@ -449,13 +453,26 @@ h1 {
 .sunset-format-video {
 
   header {
-    margin-top: 40px;
 
     h1 {
 
       &.entry-title {
         margin-top: 20px;
       }
+    }
+  }
+}
+
+/**
+  Gallery Post Format
+ */
+.sunset-format-gallery {
+
+  .standard-featured {
+    height: 500px;
+
+    &:after {
+      background-color: transparent;
     }
   }
 }

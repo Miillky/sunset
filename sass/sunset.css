@@ -327,7 +327,11 @@ a:hover, a:focus {
   Standard Post Format
 */
 article {
-  margin-bottom: 80px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+article:first-child {
+  padding-top: 80px;
 }
 
 h1 {
@@ -337,7 +341,7 @@ h1 {
 }
 h1.entry-title {
   line-height: 1.5em;
-  margin: 40px 0 0;
+  margin: 0;
   padding: 0;
 }
 h1.entry-title:before, h1.entry-title:after {
@@ -462,9 +466,6 @@ h1 a {
 /**
   Image Post Format
  */
-.sunset-format-image {
-  margin-top: 50px;
-}
 .sunset-format-image .entry-header {
   position: relative;
   color: #ffffff;
@@ -520,11 +521,18 @@ h1 a {
 /**
   Video Post Format
  */
-.sunset-format-video header {
-  margin-top: 40px;
-}
 .sunset-format-video header h1.entry-title {
   margin-top: 20px;
+}
+
+/**
+  Gallery Post Format
+ */
+.sunset-format-gallery .standard-featured {
+  height: 500px;
+}
+.sunset-format-gallery .standard-featured:after {
+  background-color: transparent;
 }
 
 /*# sourceMappingURL=sunset.css.map */
