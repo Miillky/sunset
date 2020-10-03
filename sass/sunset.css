@@ -33,12 +33,12 @@
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
-.sunset-format-image .entry-excerpt.image-caption {
-  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+.sunset-format-gallery .entry-header .entry-excerpt.image-caption, .sunset-format-image .entry-excerpt.image-caption {
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
   /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#00000000", endColorstr="#80000000",GradientType=0 );
   /* IE6-9 */
@@ -494,6 +494,7 @@ h1 a {
 .sunset-format-image .entry-excerpt.image-caption p {
   text-align: center;
   margin: 40px 0;
+  font-size: 14px;
 }
 
 /**
@@ -528,6 +529,29 @@ h1 a {
 /**
   Gallery Post Format
  */
+.sunset-format-gallery .entry-header .entry-excerpt.image-caption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  -webkit-transform: transform 320ms ease;
+  -moz-transition: transform 320ms ease;
+  -ms-transition: transform 320ms ease;
+  -o-transition: transform 320ms ease;
+  transition: transform 320ms ease;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  transform: translateY(100%);
+}
+.sunset-format-gallery .entry-header .entry-excerpt.image-caption p {
+  color: #ffffff;
+  text-align: center;
+  margin: 40px 0;
+  font-size: 14px;
+}
 .sunset-format-gallery .standard-featured {
   height: 500px;
 }
@@ -594,6 +618,13 @@ h1 a {
   -ms-transform: scale(0);
   -o-transform: scale(0);
   transform: scale(0);
+}
+.sunset-format-gallery:hover .entry-excerpt.image-caption {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
 }
 
 /*# sourceMappingURL=sunset.css.map */

@@ -409,6 +409,7 @@ h1 {
       p {
         text-align: center;
         margin: 40px 0;
+        font-size: 14px;
       }
     }
   }
@@ -468,6 +469,30 @@ h1 {
  */
 .sunset-format-gallery {
 
+  .entry-header {
+
+    .entry-excerpt {
+
+      &.image-caption {
+        @extend %background-gradient;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: 0;
+        @include animate(transform, 320ms);
+        @include transform(translateY(100%));
+
+        p {
+          color: $white;
+          text-align: center;
+          margin: 40px 0;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
   .standard-featured {
     height: 500px;
 
@@ -495,6 +520,7 @@ h1 {
     }
 
     &.left {
+
       .preview-container {
         padding-right: 80px;
         border-radius: 0 35.5px 35.5px 0;
@@ -506,6 +532,7 @@ h1 {
     }
 
     &.right {
+
       .preview-container {
         padding-left: 80px;
         border-radius: 35.5px 0 0 35.5px;
@@ -534,6 +561,16 @@ h1 {
         top: 1px;
         @include animate(transform, 320ms);
         @include transform(scale(0));
+      }
+    }
+  }
+
+  &:hover {
+
+    .entry-excerpt {
+
+      &.image-caption {
+        @include transform(translateY(0));
       }
     }
   }

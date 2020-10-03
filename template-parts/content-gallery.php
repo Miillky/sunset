@@ -7,24 +7,19 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('sunset-format-gallery'); ?>>
 	<header class="entry-header text-center">
-		<?php if($attachments = sunset_get_attachment('large', 7)): ?>
+		<?php if( $attachments = sunset_get_attachment('large', 7) ): ?>
             <div id="post-gallery-<?php the_ID(); ?>" class="carousel slide sunset-carousel-thumb" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
-                    <?php $count = count($attachments) - 1; ?>
-                    <?php for($i = 0; $i <= $count; $i++): ?>
-                        <?php
-                            $active = ($i == 0) ? ' active' : '';
-                            $next   = $i == $count ? 0 : $i+1;
-	                        $prev   = $i == 0 ? $count : $i-1;
-	                        $nextImg = wp_get_attachment_thumb_url($attachments[$next]);
-                            $prevImg = wp_get_attachment_thumb_url($attachments[$prev]);
-                        ?>
-                        <div class="item background-image standard-featured<?php echo $active; ?>"
-                             data-prev-image="<?php echo $prevImg; ?>"
-                             data-next-image="<?php echo $nextImg; ?>"
-                             style="background-image: url(<?php echo wp_get_attachment_url($attachments[$i]); ?>);">
+                    <?php foreach( sunset_get_bs_slide($attachments) as $attachment ): ?>
+                        <div class="item background-image standard-featured<?php echo $attachment['class']; ?>"
+                             data-prev-image="<?php echo $attachment['prev_img']; ?>"
+                             data-next-image="<?php echo $attachment['next_img']; ?>"
+                             style="background-image: url(<?php echo $attachment['url']; ?>);">
+                            <div class="entry-excerpt image-caption">
+                                <p><?php echo $attachment['caption']; ?></p>
+                            </div>
                         </div>
-                    <?php endfor; ?>
+                    <?php endforeach; ?>
                 </div>
                 <a href="#post-gallery-<?php the_ID(); ?>" class="left carousel-control" role="button" data-slide="prev">
                     <div class="table">

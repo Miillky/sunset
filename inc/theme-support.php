@@ -180,5 +180,35 @@ function sunset_get_embedded_media( $type = [] ){
 	endif;
 
 	return $output;
+}
 
+/**
+ * @param $attachments
+ * @return array
+ * Get gallery carousel slides
+ */
+function sunset_get_bs_slide($attachments){
+
+    $output = [];
+    $count = count($attachments) - 1;
+
+    for($i = 0; $i <= $count; $i++):
+
+        $active = ($i == 0) ? ' active' : '';
+        $next   = $i == $count ? 0 : $i+1;
+        $prev   = $i == 0 ? $count : $i-1;
+        $nextImg = wp_get_attachment_thumb_url($attachments[$next]);
+        $prevImg = wp_get_attachment_thumb_url($attachments[$prev]);
+
+        $output[$i] = [
+            'class'     => $active,
+            'url'       => wp_get_attachment_url($attachments[$i]),
+            'next_img'  => $nextImg,
+            'prev_img'  => $prevImg,
+            'caption'   => get_the_excerpt($attachments[$i])
+        ];
+
+    endfor;
+
+    return $output;
 }
