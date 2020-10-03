@@ -170,7 +170,7 @@ function sunset_get_attachment($size = 'src', $num = 1){
  */
 function sunset_get_embedded_media( $type = [] ){
 
-	$content = do_shortcode(apply_filters('the_content', get_the_content()) );
+	$content = do_shortcode(apply_filters('the_content', get_the_content()));
 	$embed = get_media_embedded_in_content($content, $type);
 
 	if(in_array('audio', $type)):

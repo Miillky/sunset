@@ -627,4 +627,35 @@ h1 a {
   transform: translateY(0);
 }
 
+/**
+  Quote Post Format
+ */
+.sunset-format-quote .quote-content {
+  font-size: 42px;
+  font-weight: 100;
+  line-height: 1.3em;
+  letter-spacing: 0.03em;
+}
+.sunset-format-quote .quote-content:before, .sunset-format-quote .quote-content:after {
+  display: inline-block;
+  position: relative;
+  color: #626262;
+}
+.sunset-format-quote .quote-content:before {
+  content: "”";
+}
+.sunset-format-quote .quote-content:after {
+  content: "„";
+}
+.sunset-format-quote .quote-author {
+  color: #898989;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+.sunset-format-quote .quote-author:before, .sunset-format-quote .quote-author:after {
+  content: "-";
+  display: inline-block;
+  position: relative;
+}
+
 /*# sourceMappingURL=sunset.css.map */
