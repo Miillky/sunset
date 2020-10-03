@@ -93,46 +93,46 @@ function sunset_posted_footer(){
 }
 
 /**
+ * @param string $size
  * @param int $num
  * @return false|mixed|string
  * Return Image URL from post content
  */
-function sunset_get_attachment($num = 1){
+function sunset_get_attachment($size = 'src', $num = 1){
 
-    $output = $num == 1 ? '' : [];
+	$output = $num == 1 ? '' : [];
 
 	if( has_post_thumbnail() && $num == 1 ):
 
-		$output = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
+		$output = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), $size)[0];
 
-	elseif( has_block('gallery', get_the_ID()) ):
+    elseif( has_block('gallery', get_the_ID()) ):
 
 		$post_blocks = parse_blocks(get_the_content());
-	    foreach($post_blocks as $block):
-            if($block['blockName'] == 'core/gallery' ):
-                foreach($block['attrs']['ids'] as $index => $attachment_id):
-                    if($num == 1):
-	                    $output = wp_get_attachment_url($attachment_id);
-	                    break;
+		foreach($post_blocks as $block):
+			if($block['blockName'] == 'core/gallery' ):
+				foreach($block['attrs']['ids'] as $index => $attachment_id):
+					if($num == 1):
+						$output = $attachment_id;
+						break;
                     elseif($num > 1):
-
-                        if($index < $num):
-                            $output[] = wp_get_attachment_url($attachment_id);
-                        else:
-                            break;
-                        endif;
-                    endif;
-                endforeach;
-            endif;
-        endforeach;
+						if($index < $num):
+							$output[] = $attachment_id;
+						else:
+							break;
+						endif;
+					endif;
+				endforeach;
+			endif;
+		endforeach;
 
     elseif( get_post_gallery( get_the_ID(), false ) ):
 
-        if($num == 1):
-            $output = get_post_gallery_images(get_the_ID())[0];
-        else:
-	        $output = get_post_gallery_images(get_the_ID());
-        endif;
+		if($num == 1):
+			$output = get_post_gallery_images(get_the_ID())[0];
+		else:
+			$output = get_post_gallery_images(get_the_ID());
+		endif;
 
 	else:
 
@@ -150,10 +150,10 @@ function sunset_get_attachment($num = 1){
 
 		if($attachments && $num == 1):
 			foreach($attachments as $attachment):
-				$output = wp_get_attachment_url($attachment->ID);
+				$output = wp_get_attachment_image_src($attachment->ID, $size)[0];
 			endforeach;
         elseif($attachments && $num > 1):
-            $output = $attachments;
+			$output = $attachments;
 		endif;
 
 		wp_reset_postdata();
