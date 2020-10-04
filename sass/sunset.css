@@ -658,4 +658,26 @@ h1 a {
   position: relative;
 }
 
+/**
+  Link Post Format
+ */
+.sunset-format-link h1:before, .sunset-format-link h1:after {
+  display: none;
+}
+.sunset-format-link h1 a {
+  display: block;
+}
+.sunset-format-link h1 a .link-icon {
+  display: block;
+  color: #ffffff;
+  font-size: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+  margin: 0 auto;
+  line-height: 1;
+  padding-top: 10px;
+}
+
 /*# sourceMappingURL=sunset.css.map */

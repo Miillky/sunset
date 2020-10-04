@@ -212,3 +212,15 @@ function sunset_get_bs_slide($attachments){
 
     return $output;
 }
+
+
+/**
+ * @return false|mixed|string
+ * Get first URL in content
+ */
+function sunset_grab_url(){
+    if( !preg_match('/<a\s[^>]*?href=[\'"](.+?)[\'"]/i', get_the_content(), $links) ){
+	    return false;
+    }
+    return esc_url_raw($links[1]);
+}
