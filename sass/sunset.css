@@ -20,6 +20,14 @@
 /**
   Mixins
  */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 /**
   Placeholders
 */
@@ -706,6 +714,41 @@ h1 a {
   border-bottom: none;
   background-color: rgba(0, 0, 0, 0.05);
   padding-right: 10px;
+}
+
+/**
+  Ajax Loading
+ */
+.btn-sunset-load {
+  display: block;
+  width: 200px;
+  color: #222222;
+  font-size: 30px;
+  margin: 0 auto;
+  cursor: pointer;
+  background: none;
+  border: none;
+  opacity: 0.5;
+  -webkit-transform: opacity 320ms ease;
+  -moz-transition: opacity 320ms ease;
+  -ms-transition: opacity 320ms ease;
+  -o-transition: opacity 320ms ease;
+  transition: opacity 320ms ease;
+}
+.btn-sunset-load:hover, .btn-sunset-load:focus, .btn-sunset-load.loading {
+  opacity: 1;
+}
+.btn-sunset-load:focus {
+  outline: none;
+}
+.btn-sunset-load.loading .spin {
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.btn-sunset-load span {
+  display: block;
 }
 
 /**

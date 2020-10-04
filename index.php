@@ -20,8 +20,10 @@
 				?>
 			</div>
             <div class="container text-center">
-                <button class="btn btn-lg btn-default sunset-load-more" data-page="1" data-url="<?php echo admin_url('admin-ajax.php'); ?>">
-                    <span class="sunset-icon sunset-loading"></span> Load More</button>
+                <button class="btn-sunset-load sunset-load-more" data-page="1" data-url="<?php echo admin_url('admin-ajax.php'); ?>">
+                    <span class="sunset-icon sunset-loading"></span>
+                    <span class="text">Load More</span>
+                </button>
             </div>
 		</main>
 	</div>

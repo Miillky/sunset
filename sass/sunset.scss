@@ -683,6 +683,47 @@ h1 {
 }
 
 /**
+  Ajax Loading
+ */
+.btn-sunset-load {
+  display: block;
+  width: 200px;
+  color: #222222;
+  font-size: 30px;
+  margin: 0 auto;
+  cursor: pointer;
+  background: none;
+  border: none;
+  opacity: 0.5;
+  @include animate(opacity, 320ms);
+
+  &:hover,
+  &:focus,
+  &.loading {
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.loading {
+
+    .spin {
+      animation-name: spin;
+      animation-duration: 1000ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+  }
+
+  span {
+    display: block;
+  }
+
+}
+
+/**
   Footer Section
  */
 .sunset-footer {
