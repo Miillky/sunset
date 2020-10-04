@@ -680,4 +680,32 @@ h1 a {
   padding-top: 10px;
 }
 
+/**
+  Aside Post Format
+ */
+.sunset-format-aside .aside-container {
+  background-color: rgba(0, 0, 0, 0.075);
+  padding-top: 20px;
+}
+.sunset-format-aside .aside-container .aside-featured {
+  width: 136px;
+  height: 136px;
+  border-radius: 50%;
+  margin: 0 auto -20px;
+}
+.sunset-format-aside .aside-container .entry-meta {
+  margin-bottom: 5px;
+}
+.sunset-format-aside .aside-container .entry-excerpt {
+  margin-top: 0;
+}
+.sunset-format-aside .aside-container .entry-excerpt p {
+  font-size: 13px;
+}
+.sunset-format-aside .aside-container .entry-footer {
+  border-bottom: none;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding-right: 10px;
+}
+
 /*# sourceMappingURL=sunset.css.map */
