@@ -32,12 +32,14 @@ jQuery(document).ready(function($){
     /**
      * Ajax Functions
      */
+    revealPosts();
     $(document).on('click', '.sunset-load-more:not(.loading)', function(){
 
         var that = $(this);
         var page = that.data('page');
         var newPage = page+1;
         var ajax_url = that.data('url');
+        var posts_container =  $('.sunset-posts-container');
 
         that.addClass('loading').find('.text').slideUp(320);
         that.find('.sunset-icon').addClass('spin');
@@ -56,12 +58,47 @@ jQuery(document).ready(function($){
                 that.data('page', newPage);
 
                 setTimeout(function(){
-                    $('.sunset-posts-container').append(response);
+
+                    posts_container.append(response);
                     that.removeClass('loading').find('.text').slideDown(320);
                     that.find('.sunset-icon').removeClass('spin');
-                }, 1000)
+
+                    $(carousels).each(function(index, carousel){
+                        sunset_get_bs_thumbs(carousel)
+                    });
+
+                    $(carousels).off('slid.bs.carousel');
+                    $(carousels).on('slid.bs.carousel', function(){
+                        sunset_get_bs_thumbs(this);
+                    });
+
+                    revealPosts();
+
+                }, 2000)
             }
         });
-
     });
+
+    /**
+     * Helper functions
+     */
+    function revealPosts(){
+
+        var posts = $('article:not(.reveal)');
+        var i = 0;
+
+        setInterval(function(){
+
+            if(i >= posts.length )
+                return false;
+
+            $(posts[i]).addClass('reveal')
+                .find(carousels)
+                .carousel();
+
+            i++;
+
+        }, 200);
+    }
+
 })
