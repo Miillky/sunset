@@ -10,6 +10,11 @@
 function sunset_load_more(){
 
 	$paged = $_POST['page'] + 1;
+	$prev = $_POST['prev'];
+
+	if( $prev == 1 && $_POST['page'] != 1 ){
+	    $paged = $_POST['page'] - 1;
+    }
 
 	$query = new WP_Query([
 		'post_type'     => 'post',
@@ -28,6 +33,10 @@ function sunset_load_more(){
 		</div>
 
 	<?php
+    else:
+
+        echo 0;
+
 	endif;
 
 	wp_reset_postdata();

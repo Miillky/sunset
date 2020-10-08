@@ -10,6 +10,14 @@
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
+            <?php if( is_paged() ): ?>
+                <div class="container text-center container-load-previous">
+                    <button class="btn-sunset-load sunset-load-more" data-prev="1" data-page="<?php echo sunset_check_page(1); ?>" data-url="<?php echo admin_url('admin-ajax.php'); ?>">
+                        <span class="sunset-icon sunset-loading"></span>
+                        <span class="text">Load Previous</span>
+                    </button>
+                </div>
+            <?php endif; ?>
 			<div class="container sunset-posts-container">
 				<?php if( have_posts() ): ?>
                     <div class="page-limit" data-page="/<?php echo sunset_check_page(); ?>">

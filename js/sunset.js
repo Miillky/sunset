@@ -48,6 +48,11 @@ jQuery(document).ready(function($){
         var newPage = page+1;
         var ajax_url = that.data('url');
         var posts_container =  $('.sunset-posts-container');
+        var prev = that.data('prev');
+
+        if( typeof prev === 'undefined' ){
+            prev = 0;
+        }
 
         that.addClass('loading').find('.text').slideUp(320);
         that.find('.sunset-icon').addClass('spin');
@@ -57,32 +62,43 @@ jQuery(document).ready(function($){
             type: 'post',
             data: {
                 page: page,
+                prev: prev,
                 action: 'sunset_load_more'
             },
             error: function(response){
                 console.log(response)
             },
             success: function(response){
-                that.data('page', newPage);
 
-                setTimeout(function(){
+                if( parseInt(response) === 0 ){
 
-                    posts_container.append(response);
-                    that.removeClass('loading').find('.text').slideDown(320);
-                    that.find('.sunset-icon').removeClass('spin');
+                    posts_container.append('<div class="text-center"><h3>You reached the end of the line!</h3><p>No more posts to load.</p></div>');
+                    that.slideUp(320);
 
-                    $(carousels).each(function(index, carousel){
-                        sunset_get_bs_thumbs(carousel)
-                    });
+                } else {
 
-                    $(carousels).off('slid.bs.carousel');
-                    $(carousels).on('slid.bs.carousel', function(){
-                        sunset_get_bs_thumbs(this);
-                    });
+                    setTimeout(function(){
 
-                    revealPosts();
+                        if( prev === 1){
+                            posts_container.prepend(response);
+                            newPage = page - 1;
+                        } else {
+                            posts_container.append(response);
+                        }
 
-                }, 2000)
+                        if( newPage === 1 ){
+                            that.slideUp(320);
+                        } else {
+                            that.data('page', newPage);
+                            that.removeClass('loading').find('.text').slideDown(320);
+                            that.find('.sunset-icon').removeClass('spin');
+                        }
+
+                        revealPosts();
+
+                    }, 2000)
+
+                }
             }
         });
     });
@@ -126,6 +142,16 @@ jQuery(document).ready(function($){
             i++;
 
         }, 200);
+
+        $(carousels).each(function(index, carousel){
+            sunset_get_bs_thumbs(carousel)
+        });
+
+        $(carousels).off('slid.bs.carousel');
+        $(carousels).on('slid.bs.carousel', function(){
+            sunset_get_bs_thumbs(this);
+        });
+
     }
 
     function isVisible(element){
