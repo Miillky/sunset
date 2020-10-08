@@ -5,10 +5,19 @@
 jQuery(document).ready(function($){
 
     /**
-     * Carousel
+     * Init functions
+     */
+    revealPosts();
+
+    /**
+     * Variable declaration
      */
     var carousels = '.sunset-carousel-thumb';
+    var last_scroll = 0;
 
+    /**
+     * Carousel
+     */
     function sunset_get_bs_thumbs(carousel){
 
         var activeThumb = $(carousel).find('.item.active');
@@ -32,7 +41,6 @@ jQuery(document).ready(function($){
     /**
      * Ajax Functions
      */
-    revealPosts();
     $(document).on('click', '.sunset-load-more:not(.loading)', function(){
 
         var that = $(this);
@@ -80,6 +88,25 @@ jQuery(document).ready(function($){
     });
 
     /**
+     * Scroll functions
+     */
+    $(window).scroll(function(){
+        var scroll = $(window).scrollTop();
+
+        if( Math.abs(scroll - last_scroll) > $(window).height() * 0.1 ){
+            last_scroll = scroll;
+
+            $('.page-limit').each(function(index){
+                if( isVisible($(this)) ){
+                    history.replaceState(null, null, $(this).data('page'));
+                    return false;
+                }
+            });
+        }
+
+    });
+
+    /**
      * Helper functions
      */
     function revealPosts(){
@@ -89,7 +116,7 @@ jQuery(document).ready(function($){
 
         setInterval(function(){
 
-            if(i >= posts.length )
+            if( i >= posts.length )
                 return false;
 
             $(posts[i]).addClass('reveal')
@@ -99,6 +126,17 @@ jQuery(document).ready(function($){
             i++;
 
         }, 200);
+    }
+
+    function isVisible(element){
+
+        var scroll_pos = $(window).scrollTop();
+        var window_height = $(window).height();
+        var el_top = $(element).offset().top;
+        var el_height = $(element).height();
+        var el_bottom = el_top + el_height;
+
+        return (el_bottom - el_height * 0.25 > scroll_pos) && (el_top < (scroll_pos + 0.5 * window_height) );
     }
 
 })

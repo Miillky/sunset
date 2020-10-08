@@ -210,10 +210,6 @@ a {
 article {
   padding-top: 40px;
   padding-bottom: 40px;
-
-  &:first-child {
-    padding-top: 80px;
-  }
 }
 
 h1 {
@@ -686,6 +682,7 @@ h1 {
   Ajax Loading
  */
 .sunset-posts-container {
+  padding-top: 40px;
 
   article {
     @include animate(all, 320ms);
